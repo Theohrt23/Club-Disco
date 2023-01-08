@@ -1,0 +1,27 @@
+<body class="admin_body">
+    <a routerLink="/dashboard">
+        <i class="fa-solid fa-house"></i>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="1">Id</th>
+                <th colspan="1">DisplayName</th>
+                <th colspan="1">Mail</th>
+                <th colspan="1">Roles</th>
+                <th colspan="1">Delete</th>
+                <th colspan="1">Upgrade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of allUsers">
+                <td>{{user.id}}</td>
+                <td>{{user.displayName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.roles[0]}} | {{user.roles[1]}}</td>
+                <td><button (click) = "deleteUser(user.id)">delete</button></td>
+                <td><button (click) = "upgradeUser(user.id)">upgrade</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>

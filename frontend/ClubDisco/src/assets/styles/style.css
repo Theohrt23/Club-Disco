@@ -1,0 +1,950 @@
+/*RESET*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div.add {
+    width: 90%;
+    height: 80vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    flex-wrap: wrap;
+    z-index: 9999999;
+    top: 0;
+}
+
+div.add div {
+    background-color: rgb(107, 132, 165);
+    padding: 20px 50px;
+    text-align: center;
+}
+
+div.check {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.add i {
+    font-size: 80px;
+    width: 100%;
+}
+
+.add .check i{
+    font-size: 24px;
+}
+
+.instagram_add i {
+    background: rgb(163,216,255);
+    background: linear-gradient(142deg, rgba(163,216,255,1) 0%, rgba(232,61,250,1) 20%, rgba(255,135,60,1) 54%, rgba(246,255,102,1) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+   -webkit-text-fill-color:transparent;
+}
+
+.reddit_add i {
+    color: #F54600;
+}
+
+.reddit_add div.check i {
+    color: blue;
+}
+
+.twitter_add i {
+    color: #3599F2;
+}
+
+.weather_add i {
+    color: rgb(163, 203, 255);
+}
+
+.spotify_add i {
+ color: #1ED760;
+}
+
+div.check {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.check i {
+    font-size: 24px;
+}
+
+.add i {
+    font-size: 60px;
+}
+
+body {
+    background: rgb(242,163,255);
+    background: linear-gradient(233deg, rgba(242,163,255,1) 0%, rgba(114,245,255,1) 100%);
+    overflow: hidden;
+}
+
+.board {
+    background: #B4CDE6;
+}
+
+.image img.minia {
+    display: none;
+}
+
+/*SIDEBAR*/
+
+.sidebar {
+    width: 15%;
+    height: 100vh;
+    background: #EFFFFD;
+    position: fixed;
+    transform-origin: right;
+    z-index: 9999;
+}
+
+.addWidget {
+    width: 100%;
+    text-align: center;
+}
+
+.addWidget i{
+    font-size: 48px;
+}
+
+.content {
+    width: 100%;
+}
+
+.dashboard div.add {
+    width: 90%;
+    height: 80vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    flex-wrap: wrap;
+}
+
+.dashboard div.add div {
+    background-color: rgb(107, 132, 165);
+    padding: 20px 50px;
+    text-align: center;
+}
+
+div.check {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard div.add i {
+    font-size: 80px;
+    width: 100%;
+}
+
+.dashboard .add .check i{
+    font-size: 24px;
+}
+
+.instagram_add i {
+    background: rgb(163,216,255);
+    background: linear-gradient(142deg, rgba(163,216,255,1) 0%, rgba(232,61,250,1) 20%, rgba(255,135,60,1) 54%, rgba(246,255,102,1) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+   -webkit-text-fill-color:transparent;
+}
+
+.reddit_add i {
+    color: #F54600;
+}
+
+.reddit_add div.check i {
+    color: blue;
+}
+
+.twitter_add i {
+    color: #3599F2;
+}
+
+.weather_add i {
+    color: rgb(163, 203, 255);
+}
+
+.spotify_add i {
+ color: #1ED760;
+}
+
+div.check {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.check i {
+    font-size: 24px;
+}
+
+.add i {
+    font-size: 60px;
+}
+
+.spotify_widget {
+    width: 100%;
+    display: flex;
+    justify-content: inherit;
+    flex-wrap: wrap;
+    position: absolute;
+}
+
+.spotify_widget div {
+    width: 500px;
+}
+.spotify_widget img {
+    width: auto;
+    height: 150px;
+    clip-path: fill-box;
+}
+.fav_parent {
+    width: 100%;
+    display: flex;
+    justify-content: inherit;
+    flex-wrap: wrap;
+    background: rgb(48,201,120);
+    background: linear-gradient(163deg, rgba(48,201,120,1) 0%, rgba(0,0,0,1) 100%);
+    color: white;
+}
+.fav_parent h3 {
+    width: 100%;
+    color: white;
+}
+.fav_playlist {
+    background: rgb(48,201,120);
+    background: linear-gradient(163deg, rgba(48,201,120,1) 0%, rgba(0,0,0,1) 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.fav_playlist img {
+    max-width: 100px;
+    height: auto;
+}
+
+.fav_playlist p {
+    height: 100px;
+    background-color: rgb(122, 122, 122, 0.5);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.fav_playlist h3 {
+    width: 100%;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.fav_artist {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.fav_artist img {
+    max-width: 100px;
+    height: auto;
+}
+
+.fav_artist p {
+    height: 100px;
+    background-color: rgb(122, 122, 122, 0.5);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    width: 60%;
+}
+
+.fav_track {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.releases {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.releases img {
+    max-width: 100px;
+    height: auto;
+}
+
+.releases p {
+    height: 100px;
+    background-color: rgb(122, 122, 122, 0.5);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    width: 60%;
+}
+
+.zippopotam {
+    background-color: white;
+    width: 500px;
+    min-height: 230px;
+    padding: 20px;
+    position: absolute;
+}
+
+.zippopotam form {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.zippopotam input {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(211, 211, 211);
+}
+
+.zippopotam button {
+    border-radius: 10px;
+    border: none;
+    padding: 0 10px;
+    height: 50px;
+    float: right;
+}
+
+nav.sidebar_nav {
+    width: 100%;
+}
+
+nav.sidebar_nav ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav.sidebar_nav ul li {
+    text-align: center;
+    transition: all .2s;
+    width: 100%;
+    height: 70px;
+}
+
+nav.sidebar_nav ul li:hover {
+    background-color: #B4CDE6;
+}
+
+nav.sidebar_nav ul li ul li {
+    z-index: 9999;
+    background-color: #B4CDE6;
+    display: none;
+}
+
+nav.sidebar_nav ul li:hover ul li {
+    display: block;
+}
+
+nav.sidebar_nav ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s;
+}
+
+nav.sidebar_nav ul li a:hover {
+    color: white;
+}
+
+nav.sidebar_nav ul li a i {
+    font-size: 40px;
+    color: rgb(163, 203, 255);
+    transition: all .2s;
+}
+
+nav.sidebar_nav ul li i {
+    font-size: 40px;
+    color: rgb(163, 203, 255);
+    transition: all .2s;
+    padding-top: 15px;
+}
+
+nav.sidebar_nav ul li.spotify i {
+    color: #1ED760;
+}
+
+nav.sidebar_nav ul li.nasa a i {
+    color: #3599F2;
+}
+
+nav.sidebar_nav ul li.reddit a i {
+    color: #F54600;
+}
+
+nav.sidebar_nav ul li.instagram a i {
+    background: rgb(163,216,255);
+    background: linear-gradient(142deg, rgba(163,216,255,1) 0%, rgba(232,61,250,1) 20%, rgba(255,135,60,1) 54%, rgba(246,255,102,1) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+   -webkit-text-fill-color:transparent;
+}
+
+nav.sidebar_nav ul li a i:hover {
+    color: white;
+}
+
+nav.sidebar_nav ul li i:hover {
+    color: white;
+}
+
+nav.sidebar_nav ul li.instagram a i:hover{
+    background: rgb(255, 255, 255);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+   -webkit-text-fill-color:transparent;
+}
+
+.log {
+    padding: 0 10px;
+}
+
+.log i{
+    color: rgb(163, 203, 255);
+        font-size: 34px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.sidebar img {
+    width: 75%;
+}
+
+.minia {
+    display: none;
+}
+
+.account {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin {
+    position: absolute;
+    bottom: 140px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin i {
+    font-size: 44px;
+    color: rgb(163, 203, 255);
+    transition: all .2s;
+}
+
+.admin i:hover{
+    color: rgb(107, 132, 165);
+}
+
+.logout i {
+    font-size: 44px;
+    color: rgb(163, 203, 255);
+    transition: all .2s;
+}
+
+.logout i:hover{
+    color: rgb(107, 132, 165);
+}
+
+.account i {
+    font-size: 44px;
+    color: rgb(163, 203, 255);
+    transition: all .2s;
+}
+
+.account i:hover{
+    color: rgb(107, 132, 165);
+}
+
+.home {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    font-size: 50px;
+}
+
+.home i {
+    color: rgb(163, 203, 255);
+}
+
+.home i:hover {
+    color: rgb(50, 255, 47);
+}
+
+.left {
+    bottom: 150px;
+}
+
+main {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+.dashboard {
+    margin-left: 15%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+    height: 100vh;
+    width: 85%;
+    position: relative;
+}
+
+.dashboard div{
+    margin: 5px;
+    border-radius: 15px;
+    height: fit-content;
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.dashboard div h2{
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: white;
+    width: 23%;
+}
+
+.weather_widget {
+    width: 800px;
+    background-color: rgb(211, 211, 211);
+}
+
+.weather_form {
+    height: 50px;
+    width: 100%;
+
+}
+
+.weather_form input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.weather_form button {
+    padding: 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+}
+
+.weather_widget div {
+    position: relative;
+}
+
+.weather_widget div img{
+ max-width: 50px;
+ max-height: 50px;
+ position: absolute;
+ right: 50px;
+ bottom: 20px;
+}
+
+.thisWeek {
+    display: flex;
+    justify-content:inherit;
+    flex-wrap: wrap;
+}
+
+.day {
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.currentTime {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.controls i {
+    font-size: 32px;
+    color: white;
+    transition: all .2s;
+}
+
+.controls i:hover {
+    color: #1ED760;;
+}
+
+.nasa_widget {
+    width: 600px;
+    background-color: white;
+    padding: 25px;
+    position: absolute;
+}
+.nasa_title{
+    text-transform: uppercase;
+}
+
+.nasa_widget img {
+    margin-bottom: 20px;
+}
+
+.dashboard div.weather {
+    width: 33%;
+    position: absolute;
+}
+
+.dashboard div img {
+    width: 100%;
+    border-radius: 15px;
+}
+/*ADMIN*/
+
+body.admin_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.admin_body a {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    color: white;
+}
+
+.admin_body table {
+    width: 80%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.admin_body table button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all .2s;
+}
+
+.admin_body table button:hover {
+    background-color: rgb(94, 94, 94);
+    color: white;
+}
+
+.admin_body thead tr th{
+    padding: 10px 0;
+}
+
+.admin_body tbody tr td {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 15px 0;
+}
+/* FORMULAIRE */
+
+.image {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 5%;
+    width: 100%;
+}
+
+.image img {
+    width: 250px;
+}
+
+main form {
+    height: 100vh;
+    position: relative;
+    width: 960px;
+}
+
+
+
+form .container {
+    display: flex;
+    align-items: center;
+    background: rgba( 103, 103, 103, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 80%;
+    padding: 50px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.container h1 {
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.container p {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container input {
+    width: 100%;
+    padding: 10px 5px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.login {
+    justify-content: center;
+}
+
+.login input {
+    width: 50%;
+}
+
+.login label {
+    width: 100%;
+    text-align: center;
+}
+
+.container label {
+    margin-bottom: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info input {
+    margin-top: 10px;
+}
+
+.other_option {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.googlelogo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.other_option a {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    transition: all .2s;
+}
+
+.other_option a:hover {
+    color: rgb(140, 62, 128);
+}
+
+.container button {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background-color: white;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.container button:hover {
+background-color: rgb(140, 62, 128);
+color: white;
+}
+
+.noaccount a{
+    color: white;
+}
+
+.password {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.first {
+width: 45%;
+}
+
+.first input {
+    margin-top: 10px;
+}
+
+.second {
+  width: 100%;
+}
+
+.clearfix {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .minia {
+        display: block;
+    }
+    .fullscreen {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    main form {
+        height: 100vh;
+        position: relative;
+        width: 100%;
+    }
+    .first {
+        width: 100%;
+    }
+    .info {
+        flex-wrap: wrap;
+    }
+    .password {
+        flex-wrap: wrap;
+    }
+
+    .login input {
+        width: 100%;
+    }
+
+    .image img {
+        width: 80%;
+    }
+    .dashboard div.spotify {
+        width: 45%;
+    }
+
+    .dashboard div.nasa {
+        width: 45%;
+    }
+    .dashboard div.weather {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    body {
+        overflow: auto;
+    }
+    .sidebar {
+        width: 90px;
+    }
+    .dashboard div.spotify {
+        width: 100%;
+    }
+
+    .dashboard div.nasa {
+        width: 100%;
+    }
+    .dashboard div.weather {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+
+}

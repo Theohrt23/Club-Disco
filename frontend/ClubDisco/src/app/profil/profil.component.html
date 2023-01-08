@@ -1,0 +1,63 @@
+<body>
+<div class="sidebar" id="panel">
+  <div class="logo">
+    <img src="../../assets/img/logo.svg" alt="" class="fullscreen">
+    <img src="../../assets/img/logo_miniature.svg" alt="" class="minia">
+  </div>
+  <div class="account">
+    <a routerLink="/dashboard">
+      <i class="fa-solid fa-house"></i>
+    </a>
+
+  </div>
+</div>
+<main id="container">
+  <a href="" class="home"><i class="fa-solid fa-check"></i></a>
+  <form class="form-signin" [formGroup]="editUserForm" (ngSubmit)="editUser()">
+    <div class="container user">
+      <h1>Profile</h1>
+      <p>Change your profile settings</p>
+      <div class="info">
+        <div class="second">
+          <label><b>Name</b></label>
+          <input type="text" formControlName="displayName" required [(ngModel)]="user.displayName">
+          <div class="alert-danger" *ngIf="user.displayName.invalid">
+            <div *ngIf="user.displayName.errors?.['minlength']">Display Name must be at least 3 characters</div>
+            <div *ngIf="user.displayName.errors?.['maxlength']">Display Name must be at most 20 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="second">
+          <label><b>Email</b></label>
+          <input type="email" formControlName="email" required [(ngModel)]="user.email">
+          <div class="alert-danger" *ngIf="user.email.invalid">
+            <div *ngIf="user.email.errors?.['required']">Email is required</div>
+            <div *ngIf="user.email.errors?.['email']">Email must be a valid email address</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="password">
+        <div class="first">
+          <label><b>Password</b></label>
+          <input type="password" formControlName="password" required minlength="6">
+        </div>
+        <div class="first">
+          <label><b>Confirm Password</b></label>
+          <input type="password" formControlName="matchingPassword" required minlength="6">
+          <div class="alert-danger" *ngIf="passwordInvalid||passwordInvalidSize">
+            <div *ngIf="passwordInvalidSize">Confirm Password must be at least 6 characters</div>
+            <div *ngIf="passwordInvalid">You must have the same password than before</div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix">
+        <input type="submit" class="signupbtn" value="Update your profile">
+      </div>
+      <div id="alert_message"></div>
+    </div>
+  </form>
+</main>
+</body>

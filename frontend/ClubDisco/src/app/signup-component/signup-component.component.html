@@ -1,0 +1,65 @@
+<body>
+    <div class="image"><img src="../../assets/img/logo.svg" alt="logo du dashboard"></div>
+    <main>
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <div class="info">
+                    <div class="second">
+                        <label>Name</label>
+                        <input placeholder="Enter Name" type="text" class="form-control" name="displayName" [(ngModel)]="form.displayName" required minlength="3" maxlength="20" #displayName="ngModel">
+                        <div class="alert-danger" *ngIf="f.submitted && displayName.invalid">
+                            <div *ngIf="displayName.errors?.['required']">Display Name is required</div>
+                            <div *ngIf="displayName.errors?.['minlength']">Display Name must be at least 3 characters</div>
+                            <div *ngIf="displayName.errors?.['maxlength']">Display Name must be at most 20 characters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <div class="second">
+                        <label><b>Email</b></label>
+                        <input type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="form.email" required email #email="ngModel">
+                        <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+                            <div *ngIf="email.errors?.['required']">Email is required</div>
+                            <div *ngIf="email.errors?.['email']">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="password">
+                    <div class="first">
+                        <label><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+                        #password="ngModel">
+                        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+                            <div *ngIf="password.errors?.['required']">Password is required</div>
+                            <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <div class="first">
+                        <label><b>Confirm Password</b></label>
+                        <input  type="password" placeholder="Confirm Password" class="form-control" name="matchingPassword" [(ngModel)]="form.matchingPassword" required minlength="6" #matchingPassword="ngModel">
+                        <div class="alert-danger" *ngIf="f.submitted && matchingPassword.invalid">
+                            <div *ngIf="matchingPassword.errors?.['required']">Confirm Password is required</div>
+                            <div *ngIf="matchingPassword.errors?.['minlength']">Confirm Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+                <div class="other_option">
+                    <label>Sign up with Google</label><br>
+                    <div class="googlelogo">
+                      <a href="{{ googleURL }}"><i class="fa-brands fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                    Signup failed!<br>{{ errorMessage }}
+                </div>
+            </div>
+        </form>
+    </main>
+</body>

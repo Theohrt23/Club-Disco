@@ -1,0 +1,202 @@
+<body class="board">
+    <div class="sidebar" id="panel">
+        <div class="logo">
+            <img src="../../assets/img/logo.svg" alt="" class="fullscreen">
+            <img src="../../assets/img/logo_miniature.svg" alt="" class="minia">
+        </div>
+        <div class="content" *ngFor="let widget of currentWidgets">
+            <nav class="sidebar_nav">
+                <ul>
+                    <li class="nasa" *ngIf="widget.id == 1">
+                        {{nasaOk()}}
+                        <i class="fa-solid fa-shuttle-space" (click)="toggleNasa()"></i>
+                    </li>
+                    <li class="spotify" *ngIf="widget.id == 2">
+                        <i class="fa-brands fa-spotify" id="spotify" (click)="toggleSpotify()"></i>
+                    </li>
+                    <li class="zip" *ngIf="widget.id == 3">
+                        {{zipOk()}}
+                        <i class="fa-solid fa-location-dot" (click)="toggleZip()"></i>
+                    </li>
+                    <li class="weather" *ngIf="widget.id == 4">
+                        {{weatherOk()}}
+                        <i class="fa-solid fa-cloud" (click)="toggleWeather()"></i>
+                    </li>
+                </ul>
+                
+            </nav>
+        </div>
+        <div class="addWidget">
+            <i class="fa-solid fa-circle-plus" (click)="toggleWidget()"></i>
+        </div>
+        <div class="admin" *ngIf="showAdminBoard" (click)="goToAdminView()">
+            <a>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+            </a>
+        </div>
+        <div class="logout" (click)="logout()">
+            <a>
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+        </div>
+        <div class="account" (click)="goToProfilView()">
+            <a>
+                <i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
+    </div>
+    <main class="dashboard" id="container" >
+        <div *ngFor="let widget of currentWidgets">
+
+            <div class="nasa_widget" id="2" *ngIf="widget.id == 1 && isNasa" cdkDragBoundary=".dashboard"cdkDrag>
+                <a class="nasa_title">{{nasaPicture.title}}</a>
+                <img src={{nasaPicture.url}} alt="">
+                <a>{{nasaPicture.explanation}}</a><br>
+                <a>{{nasaPicture.date}}</a>
+            </div>
+
+
+            <div class="spotify_widget" id="3" *ngIf="widget.id == 2 && isSpotify">
+                
+                    <div *ngFor="let spotifyPlaylists of currentPlaylistsSpotify" class="fav_playlist" cdkDragBoundary=".dashboard"cdkDrag>
+                        <h3>Favorite playlist :</h3> <br>
+                        <img src={{spotifyPlaylists.images[0].url}} alt="">
+                        <p>{{spotifyPlaylists.name}}</p>
+                    </div>
+                <div class="fav_parent"cdkDragBoundary=".dashboard"cdkDrag>
+                    <h3>Favorite artists :</h3><br>
+                    <div *ngFor="let spotifyArtists of currentSpotifyFollowedArtists" class="fav_artist">
+                        <img src={{spotifyArtists.images[0].url}} alt="">
+                        <p>{{spotifyArtists.name}}</p>
+                    </div>
+                </div>
+                <div class="fav_parent" cdkDragBoundary=".dashboard"cdkDrag>
+                    <h3>Favorite tracks :</h3>
+                    <div *ngFor="let spotifyTracks of currentSpotifyTopTracks" class="fav_track">
+                        name: {{spotifyTracks.name}}<br>
+                        artist: {{spotifyTracks.artists[0].name}}
+                    </div>
+                </div>
+                <div class="fav_parent" cdkDragBoundary=".dashboard"cdkDrag>
+                    <h3>Spotify releases :</h3>
+                    <div *ngFor="let spotifyReleases of currentSpotifyNewReleases" class="releases">
+                        <img src={{spotifyReleases.images[0].url}} alt="">
+                        <p>{{spotifyReleases.name}}<br>
+                        {{spotifyReleases.artists[0].name}}</p>
+                    </div>
+                </div>
+                <div class="fav_parent" cdkDragBoundary=".dashboard"cdkDrag>
+                    <h3>Your profile :</h3>
+                    <div>
+                        name: {{currentSpotifyUser.displayName}}<br>
+                        country: {{currentSpotifyUser.country}}<br>
+                        email: {{currentSpotifyUser.email}}<br>
+                        birthdate: {{currentSpotifyUser.birthdate}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="zippopotam" id="4" *ngIf = "widget.id == 3 && isZip" cdkDragBoundary=".dashboard"cdkDrag>
+                <a *ngIf="init ===false?initZipopo(currentUserConfig.id,currentUserConfig.zippoptam_zip_code,currentUserConfig.zippopotam_region):oui()"></a>
+                <div *ngIf="isSubmited">
+                    country: {{currentZip.country}}<br>
+                    place name: {{currentZip.places[0]['place name']}}<br>
+                    longitude: {{currentZip.places[0].longitude}}<br>
+                    latitude    : {{currentZip.places[0].latitude}}
+                </div>
+                <form name="form" (ngSubmit)="f.form.valid && onZSubmit(currentUserConfig.id)" #f="ngForm" novalidate>
+                    <input type="text" class="form-control" placeholder="Enter a region" name="region" [(ngModel)]="zForm.region" required>
+                    <input type="text" class="form-control" placeholder="Enter a zip_code" name="zip_code" [(ngModel)]="zForm.zip_code" required>
+                    <button type="submit" class="searchbtn">Search</button>
+                </form>
+            </div>
+
+            <div class="weather_widget" id="5" *ngIf="widget.id == 4 && isWeather" cdkDragBoundary=".dashboard"cdkDrag>
+                <a *ngIf="initW ===false?initWeather(currentUserConfig.id,currentUserConfig.weather_city):oui()"></a>
+                <div *ngIf="isSubmited">
+                    <form class="weather_form" name="formw" (ngSubmit)="f.form.valid && onWSubmit(currentUserConfig.id)" #f="ngForm" novalidate>
+                        <input type="text" class="form-control" placeholder="Enter a city" name="region" [(ngModel)]="wForm.city" required>
+                        <button type="submit" class="searchbtn">Search</button>
+                    </form>
+                    <p>TODAY :</p>
+                    <div class="currentTime">
+                        {{currentWeather.location.country}}<br>
+                        {{currentWeather.location.name}}<br>
+                        {{currentWeather.current.temp_c}}°<br>
+                        <img src={{currentWeather.current.condition.icon}} alt=""><br>
+                        {{currentWeather.current.last_updated}}<br>
+                    </div>
+                    <p>THIS WEEK :</p>
+                    <div class="thisWeek">
+                        <div class="day">
+                            {{currentWeather7Days.forecast.forecastday[1].date}}<br>
+                            {{currentWeather7Days.forecast.forecastday[1].day.maxtemp_c}}°<br>
+                            {{currentWeather7Days.forecast.forecastday[1].day.mintemp_c}}°<br>
+                            <img src={{currentWeather7Days.forecast.forecastday[1].day.condition.icon}} alt=""><br><br>
+                        </div>
+                        <div class="day">
+                            {{currentWeather7Days.forecast.forecastday[2].date}}<br>
+                            {{currentWeather7Days.forecast.forecastday[2].day.maxtemp_c}}°<br>
+                            {{currentWeather7Days.forecast.forecastday[2].day.mintemp_c}}°<br>
+                            <img src={{currentWeather7Days.forecast.forecastday[2].day.condition.icon}} alt=""><br><br>
+                        </div>
+                        <div class="day">
+                            {{currentWeather7Days.forecast.forecastday[3].date}}<br>
+                            {{currentWeather7Days.forecast.forecastday[3].day.maxtemp_c}}°<br>
+                            {{currentWeather7Days.forecast.forecastday[3].day.mintemp_c}}°<br>
+                            <img src={{currentWeather7Days.forecast.forecastday[3].day.condition.icon}} alt=""><br><br>
+                        </div>
+                        <div class="day">
+                            {{currentWeather7Days.forecast.forecastday[4].date}}<br>
+                            {{currentWeather7Days.forecast.forecastday[4].day.maxtemp_c}}°<br>
+                            {{currentWeather7Days.forecast.forecastday[4].day.mintemp_c}}°<br>
+                            <img src={{currentWeather7Days.forecast.forecastday[4].day.condition.icon}} alt=""><br><br>
+                        </div>
+                        <div class="day">
+                            {{currentWeather7Days.forecast.forecastday[5].date}}<br>
+                            {{currentWeather7Days.forecast.forecastday[5].day.maxtemp_c}}°<br>
+                            {{currentWeather7Days.forecast.forecastday[5].day.mintemp_c}}°<br>
+                            <img src={{currentWeather7Days.forecast.forecastday[5].day.condition.icon}} alt=""><br><br>
+                        </div>
+                        <div class="day">
+                            {{currentWeather7Days.forecast.forecastday[6].date}}<br>
+                            {{currentWeather7Days.forecast.forecastday[6].day.maxtemp_c}}°<br>
+                            {{currentWeather7Days.forecast.forecastday[6].day.mintemp_c}}°<br>
+                            <img src={{currentWeather7Days.forecast.forecastday[6].day.condition.icon}} alt=""><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add" *ngIf = "isWidget">
+            <div class="instagram_add">
+                <i class="fa-solid fa-shuttle-space"></i>
+                <div class="check">
+                    <i class="fa-solid fa-check" *ngIf="!haveNasa" (click)= "addWidget(1)"></i>
+                    <i class="fa-solid fa-xmark" *ngIf="haveNasa" (click)= "removeWidget(1)"></i>
+                </div>
+            </div>
+            <div class="reddit_add">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="check">
+                    <i class="fa-solid fa-check" *ngIf="!haveZip" (click)= "addWidget(3)"></i>
+                    <i class="fa-solid fa-xmark" *ngIf="haveZip" (click)= "removeWidget(3)"></i>
+                </div>
+            </div>
+            <div class="weather_add">
+                <i class="fa-solid fa-cloud"></i>
+                <div class="check">
+                    <i class="fa-solid fa-check" *ngIf="!haveWeather" (click)= "addWidget(4)"></i>
+                    <i class="fa-solid fa-xmark" *ngIf="haveWeather" (click)= "removeWidget(4)"></i>
+                </div>
+            </div>
+            <div class="spotify_add">
+                <i class="fa-brands fa-spotify"></i>
+                <div class="check">
+                    <i class="fa-solid fa-check" *ngIf="!haveSpotify" (click)= "addSpotify()"></i>
+                    <i class="fa-solid fa-xmark" *ngIf="haveSpotify" (click)= "removeWidget(2)"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
