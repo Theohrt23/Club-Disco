@@ -30,7 +30,7 @@ spring.datasource.password=root   (mdp du user de votre BDD)
 
 4) Installer Angular avec la commande suivante 'npm install -g @angular/cli'
 
-5) Naviguer vers le dossier du projet avec la cmd (ex : cd Documents, cd GitHub, cd T-JAV-501-LIL-5-1-dashboard-lucas.redjaimia)
+5) Naviguer vers le dossier du projet.
 
 6) Installer les modules du projet avec la commande 'npm install'
 
@@ -69,3 +69,4 @@ En tant qu'admin :
 
     - Suppression d'users
 
+Projet Epitech réalisé par Huret Théo(@Theohrt23), Enzo Cardoso(@EnzoCardoso0) & Lucas Redjaimia(@LucasRedjaimia)
